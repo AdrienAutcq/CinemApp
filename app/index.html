@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en" ng-app="cinemApp">
+  <head>
+    <meta charset="utf-8">
+    <title>CinemApp</title>
+    <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="app.css" />
+    <link rel="stylesheet" href="app.animations.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.css">
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.pack.js"></script>
+    <script src="lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="lib/jquery/dist/jquery-3.5.1.js"></script>
+    <script src="lib/angular/angular.js"></script>
+    <script src="lib/angular-animate/angular-animate.js"></script>
+    <script src="lib/angular-resource/angular-resource.js"></script>
+    <script src="lib/angular-route/angular-route.js"></script>
+
+    <script src="app.module.js"></script>
+    <script src="app.config.js"></script>
+    <script src="app.animations.js"></script>
+    <script src="core/core.module.js"></script>
+    <script src="core/checkmark/checkmark.filter.js"></script>
+    <script src="core/movie/movie.module.js"></script>
+    <script src="core/movie/movie.service.js"></script>
+    <script src="core/actor/actor.module.js"></script>
+    <script src="core/actor/actor.service.js"></script>
+    <script src="core/category/category.module.js"></script>
+    <script src="core/category/category.service.js"></script>
+    <script src="movie-list/movie-list.module.js"></script>
+    <script src="movie-list/movie-list.component.js"></script>
+    <script src="movie-detail/movie-detail.module.js"></script>
+    <script src="movie-detail/movie-detail.component.js"></script>
+    <script src="actor-detail/actor-detail.module.js"></script>
+    <script src="actor-detail/actor-detail.component.js"></script>
+
+  </head>
+  <body>
+
+    <div class="view-container">
+      <div ng-include="'navbar.html'"></div>
+      <div ng-view class="view-frame"></div>
+      <div ng-include="'footer.html'"></div>
+    </div>
+
+  </body>
+</html>

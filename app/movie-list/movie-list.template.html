@@ -1,0 +1,21 @@
+<div class="container-fluid">
+  Search:
+  <input ng-model="$ctrl.query" />
+  Sort by:
+  <select ng-model="$ctrl.orderProp">
+    <option value="title">Alphabetical</option>
+    <option value="release_date">Release date</option>
+  </select>
+  <div class="row">
+    <div ng-repeat="movie in $ctrl.movies | filter:$ctrl.query | orderBy:$ctrl.orderProp" class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="embed-responsive embed-responsive-poster card border-1 shadow vh-50">
+        <a href="#!/movies/{{movie.id}}">
+          <img class="embed-responsive-item card-img" src={{movie.cover_url}} alt="{{movie.title}}">
+          <div class="text">
+            {{movie.title + ' (' + movie.release_date.substring(0,4) + ')'}}
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

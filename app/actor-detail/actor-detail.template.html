@@ -1,0 +1,22 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="movie-images">
+                <img src="{{$ctrl.actor.picture_url}}" class="movie"/>
+            </div>
+        </div>
+        <div class="col-lg-8">
+            <h3>{{$ctrl.actor.first_name + ' ' + $ctrl.actor.last_name}}</h3>
+            <p>Nationality: {{$ctrl.actor.nationality}}</p>
+            <p>{{$ctrl.actor.biography}}</p>
+            <p>
+                Known for:
+            <p ng-repeat="movie in $ctrl.movies">
+                <a href="#!/movies/{{movie.id}}">
+                    {{movie.title}}
+                </a>
+            </p>
+            </p>
+        </div>
+    </div>
+</div>
