@@ -14,6 +14,21 @@ angular.
         .when('/actors/:actorId', {
           template: '<actor-detail></actor-detail>'
         })
+        .when('/categories', {
+          template: '<category-list></category-list>'
+        })
+        .when('/categories/:categoryId', {
+          template: '<category-detail></category-detail>'
+        })
+        .when('/newmovie', {
+          template: '<add-movie></add-movie>'
+        })
+        .when('/newactor', {
+          template: '<add-actor></add-actor>'
+        })
+        .when('/newcategory', {
+          template: '<add-category></add-category>'
+        })
         .otherwise('/movies');
     }
   ]);

@@ -5,12 +5,16 @@ angular.
   module('movieDetail').
   component('movieDetail', {
     templateUrl: 'movie-detail/movie-detail.template.html',
-    controller: ['$routeParams', 'movie',
-      function movieDetailController($routeParams, movie) {
+    controller: ['$routeParams', 'movie', '$scope',
+      function movieDetailController($routeParams, movie, $scope) {
         var self = this;
         self.movie = movie.getOne({movieId: $routeParams.movieId});
         self.actors = movie.getMovieActors({movieId: $routeParams.movieId});
         self.categories = movie.getMovieCategories({movieId: $routeParams.movieId});
+        $scope.deleteOne = function(){
+            movie.deleteOne({movieId: $routeParams.movieId});
+            window.alert("Movie deleted!");
+        };
       }
     ]
   });

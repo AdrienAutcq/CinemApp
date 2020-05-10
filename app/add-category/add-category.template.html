@@ -1,0 +1,21 @@
+<div class="container-fluid">
+    <form novalidate name="addCategoryForm">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input ng-model="categoryToAdd.name" name="name" type="text" class="form-control"
+                   id="name" placeholder="Name" required>
+            <span style="color:red" ng-show="addCategoryForm.name.$invalid">
+                <span ng-show="addCategoryForm.name.$error.required">Name is required.</span>
+            </span>
+        </div>
+
+        <a href="#!/movies">
+            <button ng-click="addCategory(categoryToAdd)" type="submit"
+                    class="btn btn-dark" ng-disabled="addCategoryForm.name.$invalid">Submit</button>
+        </a>
+        <a href="#!/movies">
+            <button type="button" class="btn btn-outline-danger">Cancel</button>
+        </a>
+
+    </form>
+</div>

@@ -6,5 +6,11 @@ angular.module('cinemApp', [
   'core',
   'movieDetail',
   'actorDetail',
-  'movieList'
+  'categoryDetail',
+  'movieList',
+  'categoryList',
+  'addMovie',
+  'addActor',
+  'addCategory',
+
 ]);

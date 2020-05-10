@@ -3,14 +3,13 @@
   <head>
     <meta charset="utf-8">
     <title>CinemApp</title>
+
     <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="app.css" />
     <link rel="stylesheet" href="app.animations.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.css">
 
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.pack.js"></script>
+    <script src="lib/jquery/dist/jquery.js"></script>
     <script src="lib/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="lib/jquery/dist/jquery-3.5.1.js"></script>
     <script src="lib/angular/angular.js"></script>
     <script src="lib/angular-animate/angular-animate.js"></script>
     <script src="lib/angular-resource/angular-resource.js"></script>
@@ -29,17 +28,32 @@
     <script src="core/category/category.service.js"></script>
     <script src="movie-list/movie-list.module.js"></script>
     <script src="movie-list/movie-list.component.js"></script>
+    <script src="category-list/category-list.module.js"></script>
+    <script src="category-list/category-list.component.js"></script>
     <script src="movie-detail/movie-detail.module.js"></script>
     <script src="movie-detail/movie-detail.component.js"></script>
     <script src="actor-detail/actor-detail.module.js"></script>
     <script src="actor-detail/actor-detail.component.js"></script>
+    <script src="category-detail/category-detail.module.js"></script>
+    <script src="category-detail/category-detail.component.js"></script>
+    <script src="add-movie/add-movie.module.js"></script>
+    <script src="add-movie/add-movie.component.js"></script>
+    <script src="add-actor/add-actor.module.js"></script>
+    <script src="add-actor/add-actor.component.js"></script>
+    <script src="add-category/add-category.module.js"></script>
+    <script src="add-category/add-category.component.js"></script>
 
   </head>
   <body>
 
     <div class="view-container">
       <div ng-include="'navbar.html'"></div>
-      <div ng-view class="view-frame"></div>
+      <div class="row">
+        <div class="col-lg-1 col-md-1"></div>
+        <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
+          <div ng-view class="view-frame"></div>
+        </div>
+      </div>
       <div ng-include="'footer.html'"></div>
     </div>
 
