@@ -20,7 +20,8 @@ angular.
           headers: {
             "Authorization":"2d7a4814d02fb3ad6f28b19ba2004ede",
             "Content-Type": "application/json"
-          }
+          },
+          params: {actorId: '@actorId'}
         },
         getActorMovies: {
           method: 'GET',
@@ -29,6 +30,7 @@ angular.
             "Authorization":"2d7a4814d02fb3ad6f28b19ba2004ede",
             "Content-Type": "application/json"
           },
+          params: {actorId: '@actorId'},
           isArray: true
         },
         postOne: {
@@ -45,7 +47,8 @@ angular.
           headers: {
             "Authorization":"2d7a4814d02fb3ad6f28b19ba2004ede",
             "Content-Type": "application/json"
-          }
+          },
+          params: {actorId: '@actorId'}
         },
         addMovieToActor: {
           method: 'PATCH',
@@ -55,6 +58,15 @@ angular.
             "Content-Type": "application/json"
           },
           params: {actorId: '@actorId', movieId: '@movieId'}
+        },
+        updateOne: {
+          method: 'PATCH',
+          url: "https://api-exercise.herokuapp.com/actors/:actorId",
+          headers: {
+            "Authorization":"2d7a4814d02fb3ad6f28b19ba2004ede",
+            "Content-Type": "application/json"
+          },
+          params: {actorId: '@actorId'}
         }
       });
     }

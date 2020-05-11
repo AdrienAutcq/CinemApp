@@ -21,6 +21,7 @@ angular.
             "Authorization":"2d7a4814d02fb3ad6f28b19ba2004ede",
             "Content-Type": "application/json"
           },
+          params: {categoryId: '@categoryId'},
           isArray: true
         },
         postOne: {
@@ -37,7 +38,8 @@ angular.
           headers: {
           "Authorization":"2d7a4814d02fb3ad6f28b19ba2004ede",
           "Content-Type": "application/json"
-          }
+          },
+          params: {categoryId: '@categoryId'}
         }
       });
     }

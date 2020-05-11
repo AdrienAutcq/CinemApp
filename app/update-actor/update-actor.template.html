@@ -4,50 +4,104 @@
 
         <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 top-buffer">
             <div class="movie-images">
-                <a href="{{$ctrl.actor.picture_url}}" target="_blank">
-                    <img src="{{$ctrl.actor.picture_url}}" class="movie"/>
-                </a>
+                <img src="{{$ctrl.actor.picture_url}}" class="movie"/>
             </div>
         </div>
 
         <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12 top-buffer">
+
             <h3>{{$ctrl.actor.first_name + ' ' + $ctrl.actor.last_name}}</h3>
-            <p>Nationality: {{$ctrl.actor.nationality}}</p>
-            <p>{{$ctrl.actor.biography}}</p>
 
-            <a href="#!/movies">
-                <button type="button" class="btn btn-outline-dark">Edit</button>
-            </a>
+            <form novalidate name="addActorForm">
+
+                <div class="form-group">
+                    <label for="nationality">Nationality</label>
+                    <input ng-model="$ctrl.actor.nationality" name="nationality" type="text" class="form-control"
+                           id="nationality" required>
+                    <span style="color:red" ng-show="addActorForm.nationality.$invalid">
+                                <span ng-show="addActorForm.nationality.$error.required">Nationality is required.</span>
+                            </span>
+                </div>
 
 
-            <a href="#!/movies">
-                <button ng-click="deleteOne()" type="button" class="btn btn-outline-danger">Delete</button>
-            </a>
+                <div class="form-group">
+                    <label for="biography">Biography</label>
+                    <textarea ng-model="$ctrl.actor.biography" name="biography" type="text" class="form-control"
+                              id="biography" rows="3" required></textarea>
+                    <span style="color:red" ng-show="addActorForm.biography.$invalid">
+                        <span ng-show="addActorForm.biography.$error.required">Biography is required.</span>
+                    </span>
+                </div>
+
+
+
+                <a href="#!/actors/{{$ctrl.actor.id}}">
+                    <button ng-click="updateActor()" type="submit" class="btn btn-dark" ng-disabled="addActorForm.first_name.$invalid
+                || addActorForm.last_name.$invalid || addActorForm.nationality.$invalid ||
+                addActorForm.biography.$invalid || addActorForm.picture_url.$invalid">Update</button>
+                </a>
+                <a href="#!/actors/{{$ctrl.actor.id}}">
+                    <button type="button" class="btn btn-outline-danger">Cancel</button>
+                </a>
+                <a href="#!/movies/">
+                    <button ng-click="deleteActor()" type="button" class="btn btn-danger">Delete actor</button>
+                </a>
+
+            </form>
 
         </div>
 
     </div>
 
-    <div ng-if="$ctrl.movies.length>0">
-        <h3>Filmography</h3>
-        <div class="row">
-            <div ng-repeat="movie in $ctrl.movies"
-                 class="col-lg-4 col-md-4 col-sm-4 col-xs-6 d-flex align-items-stretch top-buffer">
-                <div class="card border-1 shadow vh-50">
-                    <a href="#!/movies/{{movie.id}}">
-                        <img class="card-img card-img-top" src={{movie.cover_url}} alt="{{movie.title}}">
-                        <div class="card-body">
-                            <h5 class="card-title">
-                                {{movie.title + ' (' + movie.release_date.substring(0,4) + ')'}}
-                            </h5>
-                            <p class="card-text">
-                                Directed by {{movie.director}}
-                            </p>
-                        </div>
-                    </a>
+
+    <h3>Edit filmography</h3>
+
+    <div class="row">
+
+        <div ng-repeat="movie in $ctrl.selectedMovies"
+             class="col-lg-4 col-md-4 col-sm-4 col-xs-6 d-flex align-items-stretch">
+            <div class="card border-1 shadow vh-50">
+                <img class="card-img card-img-top" src={{movie.cover_url}} alt="{{movie.title}}">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        {{movie.title + ' (' + movie.release_date.substring(0,4) + ')'}}
+                    </h5>
+                    <p class="card-text">
+                        Directed by {{movie.director}}
+                    </p>
+                    <button ng-click="removeMovie(movie)" type="button" class="btn btn-outline-danger">
+                        Delete
+                    </button>
                 </div>
             </div>
         </div>
+
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 d-flex align-items-stretch">
+            <div class="card border-1 shadow vh-50">
+                <img class="card-img card-img-top" src="../assets/icons/question-mark.png" alt="Question mark">
+                <div class="card-body">
+                    <h5 class="card-title">Add movie</h5>
+                    <form novalidate name="addMovieForm">
+                        <div class="form-group">
+                            <input ng-model="$ctrl.query" name="movie" type="text" class="form-control"
+                                   id="cast" placeholder="Search a movie" required>
+                            <select class="custom-select" ng-model="myMovie" >
+                                <option ng-repeat="movie in $ctrl.allMovies | filter:$ctrl.query"
+                                        value={{movie}}>
+                                    {{movie.title + ' (' + movie.release_date.substring(0,4) + ')'}}
+                                </option>
+                            </select>
+                            <button ng-click="addMovie(myMovie)" type="button" class="btn btn-outline-dark">Add</button>
+                            <a href="#!/newmovie/">
+                                <button type="button" class="btn btn-outline-dark">Create new</button>
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
     </div>
 
 

@@ -20,7 +20,8 @@ angular.
           headers: {
             "Authorization":"2d7a4814d02fb3ad6f28b19ba2004ede",
             "Content-Type": "application/json"
-          }
+          },
+          params: {movieId: '@movieId'}
         },
         getMovieActors: {
           method: 'GET',
@@ -29,6 +30,7 @@ angular.
             "Authorization":"2d7a4814d02fb3ad6f28b19ba2004ede",
             "Content-Type": "application/json"
           },
+          params: {movieId: '@movieId'},
           isArray: true
         },
         getMovieCategories: {
@@ -38,6 +40,7 @@ angular.
             "Authorization":"2d7a4814d02fb3ad6f28b19ba2004ede",
             "Content-Type": "application/json"
           },
+          params: {movieId: '@movieId'},
           isArray: true
         },
         postOne: {
@@ -54,7 +57,8 @@ angular.
           headers: {
             "Authorization":"2d7a4814d02fb3ad6f28b19ba2004ede",
             "Content-Type": "application/json"
-          }
+          },
+          params: {movieId: '@movieId'}
         },
         addActorToMovie: {
           method: 'PATCH',
@@ -73,6 +77,15 @@ angular.
             "Content-Type": "application/json"
           },
           params: {movieId: '@movieId', categoryId: '@categoryId'}
+        },
+        updateOne: {
+        method: 'PATCH',
+          url: "https://api-exercise.herokuapp.com/movies/:movieId",
+          headers: {
+            "Authorization":"2d7a4814d02fb3ad6f28b19ba2004ede",
+            "Content-Type": "application/json"
+          },
+          params: {movieId: '@movieId'}
         }
       });
     }
