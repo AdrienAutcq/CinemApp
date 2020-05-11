@@ -29,6 +29,12 @@ angular.
         .when('/newcategory', {
           template: '<add-category></add-category>'
         })
+        .when('/updateMovie/:movieId', {
+          template: '<update-movie></update-movie>'
+        })
+        .when('/updateActor/:actorId', {
+          template: '<update-actor></update-actor>'
+        })
         .otherwise('/movies');
     }
   ]);

@@ -12,5 +12,6 @@ angular.module('cinemApp', [
   'addMovie',
   'addActor',
   'addCategory',
-
+  'updateMovie',
+  'updateActor'
 ]);

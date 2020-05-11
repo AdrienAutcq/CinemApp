@@ -1,0 +1,65 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 top-buffer ">
+            <div class="movie-images">
+                <a href="{{$ctrl.movie.cover_url}}" target="_blank">
+                    <img src="{{$ctrl.movie.cover_url}}" alt="{{$ctrl.movie.title}}" class="movie"/>
+                </a>
+            </div>
+        </div>
+
+        <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12 top-buffer">
+            <h3>{{$ctrl.movie.title}}</h3>
+            <p>Directed by {{$ctrl.movie.director}}</p>
+            <p>Release date: {{$ctrl.movie.release_date}}</p>
+            <p>Runtime: {{$ctrl.movie.running_time}} min</p>
+            <p>{{$ctrl.movie.description}}</p>
+            <div ng-if="$ctrl.categories.length>0">
+                <p>
+                    Genres:
+                    <span ng-repeat="category in $ctrl.categories">
+            <a href="#!/categories/{{category.id}}">
+              {{category.name}}
+            </a>
+          </span>
+                </p>
+            </div>
+
+            <a href="#!/movies">
+                <button type="button" class="btn btn-outline-dark">Edit</button>
+            </a>
+
+            <a href="#!/movies">
+                <button ng-click="deleteOne()" type="button" class="btn btn-outline-danger">Delete</button>
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div ng-if="$ctrl.actors.length>0">
+        <h3>Cast</h3>
+        <div class="row">
+            <div ng-repeat="actor in $ctrl.actors" class="col-lg-2 col-md-3 col-sm-4 col-xs-6 d-flex align-items-stretch">
+                <div class="card border-1 shadow vh-50">
+                    <a href="#!/actors/{{actor.id}}">
+                        <img class="card-img card-img-top-actor" src={{actor.picture_url}} alt="{{actor.first_name + ' ' + actor.last_name}}">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                {{actor.first_name + ' ' + actor.last_name}}
+                            </h5>
+                            <p class="card-text">
+                                {{actor.nationality}}
+                            </p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+</div>

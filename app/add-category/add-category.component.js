@@ -9,10 +9,8 @@ angular.
         $scope.addCategory = function(categoryToAdd) {
             // Use category service to POST one category
             category.postOne({category: categoryToAdd}).$promise.then(function(data) {
-                console.log(categoryToAdd);
                 window.alert("Category added!");
-                }
-            );
+            });
         };
       }
     ]

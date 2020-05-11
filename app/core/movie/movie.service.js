@@ -55,6 +55,24 @@ angular.
             "Authorization":"2d7a4814d02fb3ad6f28b19ba2004ede",
             "Content-Type": "application/json"
           }
+        },
+        addActorToMovie: {
+          method: 'PATCH',
+          url: "https://api-exercise.herokuapp.com/movies/:movieId/actors/:actorId",
+          headers: {
+            "Authorization":"2d7a4814d02fb3ad6f28b19ba2004ede",
+            "Content-Type": "application/json"
+          },
+          params: {movieId: '@movieId', actorId: '@actorId'}
+        },
+        addCategoryToMovie: {
+        method: 'PATCH',
+          url: "https://api-exercise.herokuapp.com/movies/:movieId/categories/:categoryId",
+          headers: {
+            "Authorization":"2d7a4814d02fb3ad6f28b19ba2004ede",
+            "Content-Type": "application/json"
+          },
+          params: {movieId: '@movieId', categoryId: '@categoryId'}
         }
       });
     }

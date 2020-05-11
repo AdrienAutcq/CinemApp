@@ -8,10 +8,8 @@ angular.
       function addActorController($routeParams, actor, $scope) {
         $scope.addActor = function(actorToAdd) {
             actor.postOne({actor: actorToAdd}).$promise.then(function(data) {
-                console.log(actorToAdd);
                 window.alert("Actor added!")
-                }
-            );
+            });
         };
       }
     ]

@@ -46,6 +46,15 @@ angular.
             "Authorization":"2d7a4814d02fb3ad6f28b19ba2004ede",
             "Content-Type": "application/json"
           }
+        },
+        addMovieToActor: {
+          method: 'PATCH',
+          url: "https://api-exercise.herokuapp.com/actors/:actorId/movies/:movieId",
+          headers: {
+            "Authorization":"2d7a4814d02fb3ad6f28b19ba2004ede",
+            "Content-Type": "application/json"
+          },
+          params: {actorId: '@actorId', movieId: '@movieId'}
         }
       });
     }
