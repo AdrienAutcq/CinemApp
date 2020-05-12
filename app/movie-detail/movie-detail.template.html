@@ -52,11 +52,16 @@
     <div ng-if="$ctrl.actors.length>0">
         <h3>Cast</h3>
         <div class="row">
-          <div ng-repeat="actor in $ctrl.actors" class="col-lg-2 col-md-3 col-sm-4 col-xs-6 d-flex align-items-stretch">
-            <div class="card border-1 shadow vh-50">
+          <div ng-repeat="actor in $ctrl.actors" class="col-lg-2 col-md-3 col-sm-4 col-xs-6 d-flex align-items-stretch top-buffer">
+            <div class="card border-1 shadow vh-50 containeroverlay">
               <a href="#!/actors/{{actor.id}}">
-                  <img class="card-img card-img-top-actor" ng-src={{actor.picture_url}} alt="{{actor.first_name + ' ' + actor.last_name}}">
-                  <div class="card-body">
+                <img class="card-img card-img-top-actor" ng-src={{actor.picture_url}} alt="{{actor.first_name + ' ' + actor.last_name}}">
+                <div class="overlay">
+                  <div class="overlaytext">
+                    <h5><i class="fa fa-edit"></i>Details</h5>
+                  </div>
+                </div>
+                <div class="card-body">
                   <h5 class="card-title">
                     {{actor.first_name + ' ' + actor.last_name}}
                   </h5>

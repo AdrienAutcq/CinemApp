@@ -35,6 +35,9 @@ angular.
         .when('/updateActor/:actorId', {
           template: '<update-actor></update-actor>'
         })
+        .when('/quizz', {
+          template: '<quizz></quizz>'
+        })
         .otherwise('/movies');
     }
   ]);

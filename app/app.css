@@ -5,8 +5,8 @@
 }
 
 :root {
-  --main-bg-color: #d9d9d9;
-  --main-bg-color-transparent: rgba(217, 217, 217, 0.8);
+  --main-bg-color: rgba(161, 186, 255, 1);
+  --main-bg-color-transparent: rgba(161, 186, 255, 0.5);
   font-size: 100%;
 }
 
@@ -24,6 +24,32 @@ img{
 a, a:hover, a:visited, a:active {
   color:inherit;
   text-decoration: none;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: #FFFFFF;
+}
+.containeroverlay:hover .overlay {
+  opacity: 0.6;
+}
+.overlaytext {
+  width: 70%;
+  text-align: center;
+  color: black;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
 }
 
 .mya {

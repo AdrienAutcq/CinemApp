@@ -16,9 +16,14 @@
     <div class="row">
       <div ng-repeat="movie in $ctrl.movies | filter:$ctrl.query | orderBy:$ctrl.orderProp"
            class="col-lg-3 col-md-4 col-sm-6 col-xs-12 top-buffer d-flex align-items-stretch">
-        <div class="card border-1 shadow vh-50">
+        <div class="card border-1 shadow vh-50 containeroverlay">
           <a href="#!/movies/{{movie.id}}">
             <img class="card-img card-img-top" ng-src={{movie.cover_url}} alt="{{movie.title}}">
+            <div class="overlay">
+              <div class="overlaytext">
+                <h5><i class="fa fa-edit"></i>Details</h5>
+              </div>
+            </div>
             <div class="card-body">
               <h5 class="card-title">
                 {{movie.title + ' (' + movie.release_date.substring(0,4) + ')'}}

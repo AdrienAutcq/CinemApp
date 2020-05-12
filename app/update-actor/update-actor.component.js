@@ -30,7 +30,7 @@ angular.
             var removeIndex = self.selectedMovies.map(function(item) { return item.id;}).indexOf(myMovie.id);
             self.selectedMovies.splice(removeIndex, 1);
         };
-        $scope.deleteOne = function(){
+        $scope.deleteActor = function(){
             actor.deleteOne({actorId: $routeParams.actorId});
             window.alert("Actor deleted!");
         };

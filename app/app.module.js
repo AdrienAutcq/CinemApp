@@ -13,5 +13,6 @@ angular.module('cinemApp', [
   'addActor',
   'addCategory',
   'updateMovie',
-  'updateActor'
+  'updateActor',
+  'quizz'
 ]);

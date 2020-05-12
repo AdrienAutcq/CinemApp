@@ -54,8 +54,8 @@ angular.
             var removeIndex = self.selectedCategories.map(function(item) { return item.id; }).indexOf(myCategory.id);
             self.selectedCategories.splice(removeIndex, 1);
         };
-        $scope.deleteOne = function(){
-            movie.deleteMovie({movieId: $routeParams.movieId});
+        $scope.deleteMovie = function(){
+            movie.deleteOne({movieId: $routeParams.movieId});
             window.alert("Movie deleted!");
         };
         $scope.updateMovie = function() {
