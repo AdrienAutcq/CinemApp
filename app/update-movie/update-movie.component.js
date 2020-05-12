@@ -11,11 +11,28 @@ angular.
         var self = this;
         self.allActors = actor.getAll();
         self.allCategories = category.getAll();
-        self.movie = movie.getOne({movieId: $routeParams.movieId});
-        self.actors = movie.getMovieActors({movieId: $routeParams.movieId});
-        self.categories = movie.getMovieCategories({movieId: $routeParams.movieId});
-        self.selectedActors = self.actors;
-        self.selectedCategories = self.categories;
+        movie.getOne({movieId: $routeParams.movieId}).$promise.then(function(data) {
+            self.movie = data;
+            self.movieReleaseDate = new Date(data.release_date);
+        });
+        movie.getMovieActors({movieId: $routeParams.movieId}).$promise.then(function(data) {
+            self.actors = [];
+            for (var i=0; i<data.length; i++) {
+                // Convert resource to regular object
+                self.actors.push(JSON.parse(angular.toJson(data[i])));
+            }
+            // Copy actors to another array
+            self.selectedActors = [...self.actors];
+        });
+        movie.getMovieCategories({movieId: $routeParams.movieId}).$promise.then(function(data) {
+        	self.categories = [];
+        	for (var i=0; i<data.length; i++) {
+        	    // Convert resource to regular object
+                self.categories.push(JSON.parse(angular.toJson(data[i])));
+            }
+            // Copy categories to another array
+        	self.selectedCategories = [...self.categories];
+        });
 
         $scope.addActor = function(myActor) {
             var myActorObj = JSON.parse(myActor);
@@ -47,16 +64,20 @@ angular.
 
             // Add actors to movie's actors list
             for (var myActor of self.selectedActors) {
-                  movie.addActorToMovie({movieId: self.movie.id, actorId: myActor.id}).$promise.then(function(actorData) {
-                    console.log(myActor.last_name + " added to movie's actors list");
-                  });
+                if (self.actors.filter(function(e) { return e.id == myActor.id; }).length == 0) {
+                    movie.addActorToMovie({movieId: self.movie.id, actorId: myActor.id}).$promise.then(function(actorData) {
+                        console.log(myActor.first_name + " " + myActor.last_name + " added to movie's actors list");
+                    });
+                }
             }
 
             // Add categories to movie's categories list
             for (var myCategory of self.selectedCategories) {
-                  movie.addCategoryToMovie({movieId: self.movie.id, categoryId: myCategory.id}).$promise.then(function(categoryData) {
-                    console.log(myCategory.name + " added to movie's categories list");
-                  });
+                if (self.categories.filter(function(e) { return e.id == myCategory.id; }).length == 0) {
+                    movie.addCategoryToMovie({movieId: self.movie.id, categoryId: myCategory.id}).$promise.then(function(categoryData) {
+                        console.log(myCategory.name + " added to movie's categories list");
+                    });
+                }
             }
 
             window.alert("Movie updated!");

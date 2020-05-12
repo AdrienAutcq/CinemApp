@@ -5,7 +5,7 @@
         <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 top-buffer ">
             <div class="movie-images">
                 <a href="{{$ctrl.movie.cover_url}}" target="_blank">
-                    <img src="{{$ctrl.movie.cover_url}}" alt="{{$ctrl.movie.title}}" class="movie"/>
+                    <img ng-src="{{$ctrl.movie.cover_url}}" alt="{{$ctrl.movie.title}}" class="movie"/>
                 </a>
             </div>
         </div>
@@ -30,8 +30,8 @@
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                         <div class="form-group">
                             <label for="release_date">Release date</label>
-                            <input ng-model="$ctrl.movie.release_date" name="release_date" type="date" class="form-control"
-                                   id="release_date" min="1880-01-01" required>
+                            <input ng-model="$ctrl.movieReleaseDate" name="release_date" type="date" class="form-control"
+                                   id="release_date" min="1880-01-01" placeholder="yyyy-MM-dd" required>
                             <span style="color:red" ng-show="addMovieForm.release_date.$invalid">
                                 <span ng-show="addMovieForm.release_date.$error.required">Release date is required.</span>
                             </span>
@@ -116,9 +116,9 @@
     <div class="row">
 
         <div ng-repeat="actor in $ctrl.selectedActors"
-             class="col-lg-3 col-md-3 col-sm-4 col-xs-6 d-flex align-items-stretch">
+             class="col-lg-3 col-md-3 col-sm-4 col-xs-6 top-buffer d-flex align-items-stretch">
             <div class="card border-1 shadow vh-50">
-                <img class="card-img card-img-top-actor" src={{actor.picture_url}} alt="{{actor.first_name + ' ' + actor.last_name}}">
+                <img class="card-img card-img-top-actor" ng-src={{actor.picture_url}} alt="{{actor.first_name + ' ' + actor.last_name}}">
                 <div class="card-body">
                     <h5 class="card-title">
                         {{actor.first_name + ' ' + actor.last_name}}
@@ -131,9 +131,9 @@
             </div>
         </div>
 
-        <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 d-flex align-items-stretch">
+        <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 top-buffer d-flex align-items-stretch">
             <div class="card border-1 shadow vh-50">
-                <img class="card-img card-img-top-actor" src="../assets/icons/question-mark.png" alt="Question mark">
+                <img class="card-img card-img-top-actor" ng-src="../assets/icons/question-mark.png" alt="Question mark">
                 <div class="card-body">
                     <h5 class="card-title">Add actor</h5>
                     <form novalidate name="addActorForm">

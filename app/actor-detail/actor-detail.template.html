@@ -5,7 +5,7 @@
         <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 top-buffer">
             <div class="movie-images">
                 <a href="{{$ctrl.actor.picture_url}}" target="_blank">
-                    <img src="{{$ctrl.actor.picture_url}}" class="movie"/>
+                    <img ng-src="{{$ctrl.actor.picture_url}}" class="movie"/>
                 </a>
             </div>
         </div>
@@ -35,7 +35,7 @@
                  class="col-lg-4 col-md-4 col-sm-4 col-xs-6 d-flex align-items-stretch top-buffer">
                 <div class="card border-1 shadow vh-50">
                     <a href="#!/movies/{{movie.id}}">
-                        <img class="card-img card-img-top" src={{movie.cover_url}} alt="{{movie.title}}">
+                        <img class="card-img card-img-top" ng-src={{movie.cover_url}} alt="{{movie.title}}">
                         <div class="card-body">
                             <h5 class="card-title">
                                 {{movie.title + ' (' + movie.release_date.substring(0,4) + ')'}}

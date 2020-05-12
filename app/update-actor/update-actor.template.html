@@ -4,7 +4,7 @@
 
         <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 top-buffer">
             <div class="movie-images">
-                <img src="{{$ctrl.actor.picture_url}}" class="movie"/>
+                <img ng-src="{{$ctrl.actor.picture_url}}" class="movie"/>
             </div>
         </div>
 
@@ -59,9 +59,9 @@
     <div class="row">
 
         <div ng-repeat="movie in $ctrl.selectedMovies"
-             class="col-lg-4 col-md-4 col-sm-4 col-xs-6 d-flex align-items-stretch">
+             class="col-lg-4 col-md-4 col-sm-4 col-xs-6 top-buffer d-flex align-items-stretch">
             <div class="card border-1 shadow vh-50">
-                <img class="card-img card-img-top" src={{movie.cover_url}} alt="{{movie.title}}">
+                <img class="card-img card-img-top" ng-src={{movie.cover_url}} alt="{{movie.title}}">
                 <div class="card-body">
                     <h5 class="card-title">
                         {{movie.title + ' (' + movie.release_date.substring(0,4) + ')'}}
@@ -76,9 +76,9 @@
             </div>
         </div>
 
-        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 d-flex align-items-stretch">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 top-buffer d-flex align-items-stretch">
             <div class="card border-1 shadow vh-50">
-                <img class="card-img card-img-top" src="../assets/icons/question-mark.png" alt="Question mark">
+                <img class="card-img card-img-top" ng-src="../assets/icons/question-mark.png" alt="Question mark">
                 <div class="card-body">
                     <h5 class="card-title">Add movie</h5>
                     <form novalidate name="addMovieForm">

@@ -9,8 +9,16 @@ angular.
         var self = this;
         self.allMovies = movie.getAll();
         self.actor = actor.getOne({actorId: $routeParams.actorId});
-        self.movies = actor.getActorMovies({actorId: $routeParams.actorId});
-        self.selectedMovies = self.movies;
+
+        actor.getActorMovies({actorId: $routeParams.actorId}).$promise.then(function(data) {
+            self.movies = [];
+            for (var i=0; i<data.length; i++) {
+                // Convert resource to regular object
+                self.movies.push(JSON.parse(angular.toJson(data[i])));
+            }
+            // Copy categories to another array
+            self.selectedMovies = [...self.movies];
+        });
 
         $scope.addMovie = function(myMovie) {
             var myMovieObj = JSON.parse(myMovie);
@@ -32,9 +40,11 @@ angular.
 
                 // Add movie to actor's movies list
                 for (var myMovie of self.selectedMovies) {
-                    actor.addMovieToActor({actorId: self.actor.id, movieId: myMovie.id}).$promise.then(function(movieData) {
-                    console.log(myMovie.title + " added to actor's movies list");
-                    });
+                    if (self.movies.filter(function(e) { return e.id == myMovie.id; }).length == 0) {
+                        actor.addMovieToActor({actorId: self.actor.id, movieId: myMovie.id}).$promise.then(function(movieData) {
+                            console.log(myMovie.title + " added to actor's movies list");
+                        });
+                    }
                 }
         
                 window.alert("Actor updated!");
