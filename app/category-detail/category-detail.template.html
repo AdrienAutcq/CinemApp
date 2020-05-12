@@ -1,23 +1,29 @@
 <div class="container-fluid">
-    <h3 class="top-buffer section-title">{{$ctrl.categoryName}}</h3>
 
-    <div class="row">
-        <div ng-repeat="movie in $ctrl.movies | filter:$ctrl.query | orderBy:$ctrl.orderProp"
-             class="col-lg-3 col-md-4 col-sm-6 col-xs-12 top-buffer d-flex align-items-stretch">
-            <div class="card border-1 shadow vh-50">
-                <a href="#!/movies/{{movie.id}}">
-                    <img class="card-img card-img-top" ng-src={{movie.cover_url}} alt="{{movie.title}}">
-                    <div class="card-body">
-                        <h5 class="card-title">
-                            {{movie.title + ' (' + movie.release_date.substring(0,4) + ')'}}
-                        </h5>
-                        <p class="card-text">
-                            Directed by {{movie.director}}
-                        </p>
-                    </div>
-                </a>
+    <div class="pageContainer">
+
+        <h3 class="top-buffer section-title centeredItem">{{$ctrl.categoryName}}</h3>
+
+        <div class="row">
+            <div ng-repeat="movie in $ctrl.movies | filter:$ctrl.query | orderBy:$ctrl.orderProp"
+                 class="col-lg-3 col-md-4 col-sm-6 col-xs-12 top-buffer d-flex align-items-stretch">
+                <div class="card border-1 shadow vh-50">
+                    <a href="#!/movies/{{movie.id}}">
+                        <img class="card-img card-img-top" ng-src={{movie.cover_url}} alt="{{movie.title}}">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                {{movie.title + ' (' + movie.release_date.substring(0,4) + ')'}}
+                            </h5>
+                            <p class="card-text">
+                                Directed by {{movie.director}}
+                            </p>
+                        </div>
+                    </a>
+                </div>
             </div>
         </div>
+
     </div>
+
 
 </div>

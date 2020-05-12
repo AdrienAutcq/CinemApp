@@ -1,14 +1,20 @@
 <div class="container-fluid">
-    <h3 class="top-buffer section-title">Choose a genre</h3>
-    <div ng-if="$ctrl.categories.length>0">
-        <div class="row">
-            <div ng-repeat="category in $ctrl.categories" class="col-lg-3 col-md-4 col-sm-6 col-xs-12 top-buffer">
-                <a href="#!/categories/{{category.id}}">
-                    <button type="submit" class="btn btn-outline-dark">
-                        {{category.name.toUpperCase()}}
-                    </button>
-                </a>
+
+    <div class="pageContainer centeredItem">
+
+        <h3 class="top-buffer section-title">Choose a genre</h3>
+        <div ng-if="$ctrl.categories.length>0">
+            <div class="row">
+                <div ng-repeat="category in $ctrl.categories" class="col-lg-3 col-md-4 col-sm-6 col-xs-12 top-buffer">
+                    <a href="#!/categories/{{category.id}}">
+                        <button type="submit" class="btn btn-dark">
+                            {{category.name.toUpperCase()}}
+                        </button>
+                    </a>
+                </div>
             </div>
         </div>
+
     </div>
+
 </div>

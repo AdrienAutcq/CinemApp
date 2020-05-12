@@ -1,165 +1,198 @@
 <div class="container-fluid">
-    <form novalidate name="addMovieForm">
 
-        <div class="row">
+    <div class="pageContainer">
 
-            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <h3 class="centeredItem">Add new flick</h3>
 
-                <div class="form-group">
-                    <label for="title">Title</label>
-                    <input ng-model="movieToAdd.title" name="title" type="text" class="form-control"
-                           id="title" placeholder="Title" required>
-                    <span style="color:red" ng-show="addMovieForm.title.$invalid">
+        <form novalidate name="addMovieForm">
+
+            <div class="row">
+
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+
+                    <div class="form-group">
+                        <label for="title">Title</label>
+                        <input ng-model="movieToAdd.title" name="title" type="text" class="form-control"
+                               id="title" placeholder="Title" required>
+                        <span style="color:red" ng-show="addMovieForm.title.$invalid">
                         <span ng-show="addMovieForm.title.$error.required">Title is required.</span>
                     </span>
+                    </div>
+
                 </div>
 
-            </div>
 
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 
-            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-
-                <div class="form-group">
-                    <label for="director">Director</label>
-                    <input ng-model="movieToAdd.director" name="director" type="text" class="form-control"
-                           id="director" placeholder="Director" required>
-                    <span style="color:red" ng-show="addMovieForm.director.$invalid">
+                    <div class="form-group">
+                        <label for="director">Director</label>
+                        <input ng-model="movieToAdd.director" name="director" type="text" class="form-control"
+                               id="director" placeholder="Director" required>
+                        <span style="color:red" ng-show="addMovieForm.director.$invalid">
                         <span ng-show="addMovieForm.director.$error.required">Director is required.</span>
                     </span>
+                    </div>
+
                 </div>
+
+
+
 
             </div>
 
 
-
-
-        </div>
-
-
-        <div class="form-group">
-            <label for="description">Description</label>
-            <textarea ng-model="movieToAdd.description" name="description" type="text" class="form-control"
-                      id="description" placeholder="Description" rows="3" required></textarea>
-            <span style="color:red" ng-show="addMovieForm.description.$invalid">
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea ng-model="movieToAdd.description" name="description" type="text" class="form-control"
+                          id="description" placeholder="Description" rows="3" required></textarea>
+                <span style="color:red" ng-show="addMovieForm.description.$invalid">
                 <span ng-show="addMovieForm.description.$error.required">Description is required.</span>
             </span>
-        </div>
+            </div>
 
 
-        <div class="row">
+            <div class="row">
 
-            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 
-                <div class="form-group">
-                    <label for="release_date">Release date</label>
-                    <input ng-model="movieToAdd.release_date" name="release_date" type="date" class="form-control"
-                           id="release_date" placeholder="Release date" min="1880-01-01" required>
-                    <span style="color:red" ng-show="addMovieForm.release_date.$invalid">
+                    <div class="form-group">
+                        <label for="release_date">Release date</label>
+                        <input ng-model="movieToAdd.release_date" name="release_date" type="date" class="form-control"
+                               id="release_date" placeholder="Release date" min="1880-01-01" required>
+                        <span style="color:red" ng-show="addMovieForm.release_date.$invalid">
                         <span ng-show="addMovieForm.release_date.$error.required">Release date is required.</span>
                     </span>
+                    </div>
+
+
+
                 </div>
 
 
-
-            </div>
-
-
-            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 
 
-                <div class="form-group">
-                    <label for="running_time">Runtime</label>
-                    <input ng-model="movieToAdd.running_time" name="running_time" type="number" class="form-control"
-                           id="running_time" placeholder="Runtime" required>
-                    <span style="color:red" ng-show="addMovieForm.running_time.$invalid">
+                    <div class="form-group">
+                        <label for="running_time">Runtime</label>
+                        <input ng-model="movieToAdd.running_time" name="running_time" type="number" class="form-control"
+                               id="running_time" placeholder="Runtime" required>
+                        <span style="color:red" ng-show="addMovieForm.running_time.$invalid">
                         <span ng-show="addMovieForm.running_time.$error.required">Runtime is required.</span>
                     </span>
+                    </div>
+
+
                 </div>
 
 
             </div>
 
-
-        </div>
-
-        <div class="form-group">
-            <label for="cover_url">Cover URL</label>
-            <input ng-model="movieToAdd.cover_url" name="cover_url" type="url" class="form-control"
-                   id="cover_url" placeholder="Cover URL" required>
-            <span style="color:red" ng-show="addMovieForm.cover_url.$invalid">
+            <div class="form-group">
+                <label for="cover_url">Cover URL</label>
+                <input ng-model="movieToAdd.cover_url" name="cover_url" type="url" class="form-control"
+                       id="cover_url" placeholder="Cover URL" required>
+                <span style="color:red" ng-show="addMovieForm.cover_url.$invalid">
                 <span ng-show="addMovieForm.cover_url.$error.required">Cover URL is required.</span>
             </span>
-        </div>
+            </div>
 
 
-        <div class="row">
+            <div class="row">
 
-            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                <div class="form-group">
-                    <label for="categories">Genre(s)</label>
-                    <input ng-model="$ctrl.queryGenre" name="categories" type="text" class="form-control"
-                           id="categories" placeholder="Search a genre" required>
-                    <select class="custom-select" ng-model="myCategory" >
-                        <option ng-repeat="category in $ctrl.allCategories | filter:$ctrl.queryGenre"
-                                value={{category}}>
-                            {{category.name}}
-                        </option>
-                    </select>
-                    <button ng-click="addCategory(myCategory)" type="button" class="btn btn-outline-dark">Add</button>
-                    <a href="#!/newcategory/">
-                        <button type="button" class="btn btn-outline-dark">Create new genre</button>
-                    </a>
-                    <span ng-if="$ctrl.selectedCategories.length>0">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="form-group">
+                        <label for="categories">Genre(s)</label>
+                        <input ng-model="$ctrl.queryGenre" name="categories" type="text" class="form-control"
+                               id="categories" placeholder="Search a genre" required>
+                        <select class="custom-select" ng-model="myCategory" >
+                            <option ng-repeat="category in $ctrl.allCategories | filter:$ctrl.queryGenre"
+                                    value={{category}}>
+                                {{category.name}}
+                            </option>
+                        </select>
+                        <button ng-click="addCategory(myCategory)" type="button" class="btn btn-outline-dark">
+                            <i class="fa fa-plus"></i>
+                            Add
+                        </button>
+                        <a href="#!/newcategory/">
+                            <button type="button" class="btn btn-outline-dark">
+                                <i class="fa fa-plus"></i>
+                                Create new genre
+                            </button>
+                        </a>
+                        <div ng-if="$ctrl.selectedCategories.length>0">
                         <span ng-repeat="category in $ctrl.selectedCategories">
                             <button ng-click="removeCategory(category)" type="button" class="btn btn-outline-danger">
+                                <i class="fa fa-trash"></i>
                                 {{category.name}}
                             </button>
                         </span>
-                    </span>
+                        </div>
+                    </div>
+
                 </div>
 
-            </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 
-            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-
-                <div class="form-group">
-                    <label for="cast">Cast members</label>
-                    <input ng-model="$ctrl.query" name="cast" type="text" class="form-control"
-                           id="cast" placeholder="Search an actor" required>
-                    <select class="custom-select" ng-model="myActor" >
-                        <option ng-repeat="actor in $ctrl.allActors | filter:$ctrl.query"
-                                value={{actor}}>
-                            {{actor.first_name + ' ' + actor.last_name}}
-                        </option>
-                    </select>
-                    <button ng-click="addActor(myActor)" type="button" class="btn btn-outline-dark">Add</button>
-                    <a href="#!/newactor/">
-                        <button type="button" class="btn btn-outline-dark">Create new actor</button>
-                    </a>
-                    <span ng-if="$ctrl.selectedActors.length>0">
+                    <div class="form-group">
+                        <label for="cast">Cast members</label>
+                        <input ng-model="$ctrl.query" name="cast" type="text" class="form-control"
+                               id="cast" placeholder="Search an actor" required>
+                        <select class="custom-select" ng-model="myActor" >
+                            <option ng-repeat="actor in $ctrl.allActors | filter:$ctrl.query"
+                                    value={{actor}}>
+                                {{actor.first_name + ' ' + actor.last_name}}
+                            </option>
+                        </select>
+                        <button ng-click="addActor(myActor)" type="button" class="btn btn-outline-dark">
+                            <i class="fa fa-plus"></i>
+                            Add
+                        </button>
+                        <a href="#!/newactor/">
+                            <button type="button" class="btn btn-outline-dark">
+                                <i class="fa fa-plus"></i>
+                                Create new actor
+                            </button>
+                        </a>
+                        <div ng-if="$ctrl.selectedActors.length>0">
                         <span ng-repeat="actor in $ctrl.selectedActors">
                             <button ng-click="removeActor(actor)" type="button" class="btn btn-outline-danger">
+                                <i class="fa fa-trash"></i>
                                 {{actor.first_name + ' ' + actor.last_name}}
                             </button>
                         </span>
-                    </span>
+                        </div>
+                    </div>
                 </div>
+
             </div>
 
-        </div>
+            <div class="centeredItem">
 
-
-        <a href="#" onclick="history.go(-1)">
-            <button ng-click="addMovie(movieToAdd)" type="submit" class="btn btn-dark" ng-disabled="addMovieForm.title.$invalid
+                <a href="#" onclick="history.go(-1)">
+                    <button ng-click="addMovie(movieToAdd)" type="submit" class="btn btn-dark" ng-disabled="addMovieForm.title.$invalid
                 || addMovieForm.director.$invalid || addMovieForm.description.$invalid ||
                 addMovieForm.release_date.$invalid || addMovieForm.running_time.$invalid ||
-                addMovieForm.cover_url.$invalid">Submit</button>
-        </a>
+                addMovieForm.cover_url.$invalid">
+                        <i class="fa fa-edit"></i>
+                        Submit
+                    </button>
+                </a>
 
 
-        <a href="#" onclick="history.go(-1)">
-            <button type="button" class="btn btn-outline-danger">Cancel</button>
-        </a>
+                <a href="#" onclick="history.go(-1)">
+                    <button type="button" class="btn btn-outline-danger">
+                        <i class="fa fa-close"></i>
+                        Cancel
+                    </button>
+                </a>
 
-    </form>
+            </div>
+
+
+        </form>
+
+    </div>
+
+
 </div>

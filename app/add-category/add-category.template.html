@@ -1,21 +1,40 @@
 <div class="container-fluid">
-    <form novalidate name="addCategoryForm">
-        <div class="form-group">
-            <label for="name">Name</label>
-            <input ng-model="categoryToAdd.name" name="name" type="text" class="form-control"
-                   id="name" placeholder="Name" required>
-            <span style="color:red" ng-show="addCategoryForm.name.$invalid">
+
+    <div class="pageContainer">
+
+        <h3 class="centeredItem">Add new film genre</h3>
+
+        <form novalidate name="addCategoryForm">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input ng-model="categoryToAdd.name" name="name" type="text" class="form-control"
+                       id="name" placeholder="Name" required>
+                <span style="color:red" ng-show="addCategoryForm.name.$invalid">
                 <span ng-show="addCategoryForm.name.$error.required">Name is required.</span>
             </span>
-        </div>
+            </div>
 
-        <a href="#" onclick="history.go(-1)">
-            <button ng-click="addCategory(categoryToAdd)" type="submit"
-                    class="btn btn-dark" ng-disabled="addCategoryForm.name.$invalid">Submit</button>
-        </a>
-        <a href="#" onclick="history.go(-1)">
-            <button type="button" class="btn btn-outline-danger">Cancel</button>
-        </a>
+            <div class="centeredItem">
 
-    </form>
+                <a href="#" onclick="history.go(-1)">
+                    <button ng-click="addCategory(categoryToAdd)" type="submit"
+                            class="btn btn-dark" ng-disabled="addCategoryForm.name.$invalid">
+                        <i class="fa fa-edit"></i>
+                        Submit
+                    </button>
+                </a>
+                <a href="#" onclick="history.go(-1)">
+                    <button type="button" class="btn btn-outline-danger">
+                        <i class="fa fa-close"></i>
+                        Cancel
+                    </button>
+                </a>
+
+            </div>
+
+        </form>
+
+    </div>
+
+
 </div>

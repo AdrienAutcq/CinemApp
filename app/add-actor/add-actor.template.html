@@ -1,82 +1,97 @@
 <div class="container-fluid">
-    <form novalidate name="addActorForm">
 
-        <div class="row">
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                <div class="form-group">
-                    <label for="first_name">First name</label>
-                    <input ng-model="actorToAdd.first_name" name="first_name" type="text" class="form-control"
-                           id="first_name" placeholder="First name" required>
-                    <span style="color:red" ng-show="addActorForm.first_name.$invalid">
+    <div class="pageContainer">
+
+        <h3 class="centeredItem">Add new actor</h3>
+
+        <form novalidate name="addActorForm">
+
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <div class="form-group">
+                        <label for="first_name">First name</label>
+                        <input ng-model="actorToAdd.first_name" name="first_name" type="text" class="form-control"
+                               id="first_name" placeholder="First name" required>
+                        <span style="color:red" ng-show="addActorForm.first_name.$invalid">
                         <span ng-show="addActorForm.first_name.$error.required">First name is required.</span>
                     </span>
+                    </div>
+
                 </div>
 
-            </div>
 
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
 
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-
-                <div class="form-group">
-                    <label for="last_name">Last name</label>
-                    <input ng-model="actorToAdd.last_name" name="last_name" type="text" class="form-control"
-                           id="last_name" placeholder="Last name" required>
-                    <span style="color:red" ng-show="addActorForm.last_name.$invalid">
+                    <div class="form-group">
+                        <label for="last_name">Last name</label>
+                        <input ng-model="actorToAdd.last_name" name="last_name" type="text" class="form-control"
+                               id="last_name" placeholder="Last name" required>
+                        <span style="color:red" ng-show="addActorForm.last_name.$invalid">
                         <span ng-show="addActorForm.last_name.$error.required">Last name is required.</span>
                     </span>
+                    </div>
+
                 </div>
 
-            </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
 
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-
-                <div class="form-group">
-                    <label for="nationality">Nationality</label>
-                    <input ng-model="actorToAdd.nationality" name="nationality" type="text" class="form-control"
-                           id="nationality" placeholder="Nationality" required>
-                    <span style="color:red" ng-show="addActorForm.nationality.$invalid">
+                    <div class="form-group">
+                        <label for="nationality">Nationality</label>
+                        <input ng-model="actorToAdd.nationality" name="nationality" type="text" class="form-control"
+                               id="nationality" placeholder="Nationality" required>
+                        <span style="color:red" ng-show="addActorForm.nationality.$invalid">
                         <span ng-show="addActorForm.nationality.$error.required">Nationality is required.</span>
                     </span>
+                    </div>
                 </div>
+
+
             </div>
 
 
-        </div>
-
-
-        <div class="form-group">
-            <label for="biography">Biography</label>
-            <textarea ng-model="actorToAdd.biography" name="biography" type="text" class="form-control"
-                      id="biography" placeholder="Biography" rows="3" required></textarea>
-            <span style="color:red" ng-show="addActorForm.biography.$invalid">
+            <div class="form-group">
+                <label for="biography">Biography</label>
+                <textarea ng-model="actorToAdd.biography" name="biography" type="text" class="form-control"
+                          id="biography" placeholder="Biography" rows="3" required></textarea>
+                <span style="color:red" ng-show="addActorForm.biography.$invalid">
                 <span ng-show="addActorForm.biography.$error.required">Biography is required.</span>
             </span>
-        </div>
+            </div>
 
 
 
-        <div class="form-group">
-            <label for="picture_url">Picture URL</label>
-            <input ng-model="actorToAdd.picture_url" name="picture_url" type="url" class="form-control"
-                   id="picture_url" placeholder="Picture URL" required>
-            <span style="color:red" ng-show="addActorForm.picture_url.$invalid">
+            <div class="form-group">
+                <label for="picture_url">Picture URL</label>
+                <input ng-model="actorToAdd.picture_url" name="picture_url" type="url" class="form-control"
+                       id="picture_url" placeholder="Picture URL" required>
+                <span style="color:red" ng-show="addActorForm.picture_url.$invalid">
                 <span ng-show="addActorForm.picture_url.$error.required">Picture URL is required.</span>
             </span>
-        </div>
+            </div>
 
+            <div class="centeredItem">
 
-
-        <a href="#" onclick="history.go(-1)">
-            <button ng-click="addActor(actorToAdd)" type="submit" class="btn btn-dark" ng-disabled="addActorForm.first_name.$invalid
+                <a href="#" onclick="history.go(-1)">
+                    <button ng-click="addActor(actorToAdd)" type="submit" class="btn btn-dark" ng-disabled="addActorForm.first_name.$invalid
                 || addActorForm.last_name.$invalid || addActorForm.nationality.$invalid ||
-                addActorForm.biography.$invalid || addActorForm.picture_url.$invalid">Submit</button>
-        </a>
+                addActorForm.biography.$invalid || addActorForm.picture_url.$invalid">
+                        <i class="fa fa-edit"></i>
+                        Submit
+                    </button>
+                </a>
+
+                <a href="#" onclick="history.go(-1)">
+                    <button type="button" class="btn btn-outline-danger">
+                        <i class="fa fa-close"></i>
+                        Cancel
+                    </button>
+                </a>
+
+            </div>
+
+        </form>
+
+    </div>
 
 
-
-        <a href="#" onclick="history.go(-1)">
-            <button type="button" class="btn btn-outline-danger">Cancel</button>
-        </a>
-
-    </form>
 </div>
