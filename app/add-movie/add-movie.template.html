@@ -73,7 +73,7 @@
 
 
                     <div class="form-group">
-                        <label for="running_time">Runtime</label>
+                        <label for="running_time">Runtime (min)</label>
                         <input ng-model="movieToAdd.running_time" name="running_time" type="number" class="form-control"
                                id="running_time" placeholder="Runtime" required>
                         <span style="color:red" ng-show="addMovieForm.running_time.$invalid">
@@ -175,7 +175,7 @@
                 addMovieForm.release_date.$invalid || addMovieForm.running_time.$invalid ||
                 addMovieForm.cover_url.$invalid">
                         <i class="fa fa-edit"></i>
-                        Submit
+                        Create
                     </button>
                 </a>
 
