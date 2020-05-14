@@ -89,6 +89,12 @@ a, a:hover, a:visited, a:active {
   background-color: var(--main-bg-color-transparent);
 }
 
+.quizzImage{
+  padding-left: 40%;
+  padding-right: 40%;
+  max-width: 100%;
+}
+
 .mynavbar {
   background-color: var(--main-bg-color);
 }

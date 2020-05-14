@@ -4,25 +4,29 @@
   
         <div class="top-buffer centeredItem">
 
-            <h3 class="top-buffer">Mini-quizz</h3>
+                <h3 class="top-buffer">Mini-quizz</h3>
 
-            <h5>{{$ctrl.questionText}}</h5>
-            
-            <div class="top-buffer">
+                <h5>{{$ctrl.questionText}}</h5>
 
-                <button ng-click="displayIcon($ctrl.answer1)" type="button" class="btn btn-{{$ctrl.btn1}}">
-                    <i ng-show="$ctrl.isDisplayedIcon" class="fa fa-{{$ctrl.icon1}}"></i>
-                    {{$ctrl.answer1}}
-                </button>
+                <div ng-if="$ctrl.isPicture" class="top-buffer">
+                    <img ng-src="{{$ctrl.actorPicture}}" class="quizzImage">
+                </div>
                 
-                <button ng-click="displayIcon($ctrl.answer2)" type="button" class="btn btn-{{$ctrl.btn2}}">
-                    <i ng-show="$ctrl.isDisplayedIcon" class="fa fa-{{$ctrl.icon2}}"></i>
-                    {{$ctrl.answer2}}
-                </button>
+                <div class="top-buffer">
 
-            </div>
+                    <button ng-click="selectAnswer($ctrl.answer1)" type="button" class="btn btn-{{$ctrl.btn1}}">
+                        <i ng-show="$ctrl.isDisplayedIcon" class="fa fa-{{$ctrl.icon1}}"></i>
+                        {{$ctrl.answer1}}
+                    </button>
+                    
+                    <button ng-click="selectAnswer($ctrl.answer2)" type="button" class="btn btn-{{$ctrl.btn2}}">
+                        <i ng-show="$ctrl.isDisplayedIcon" class="fa fa-{{$ctrl.icon2}}"></i>
+                        {{$ctrl.answer2}}
+                    </button>
 
-            <h4>{{$ctrl.ans}}</h4>
+                </div>
+
+                <h4>{{$ctrl.ans}}</h4>
 
         </div>
 
